@@ -10,21 +10,39 @@ import UIKit
 
 class LaunchVC: UIViewController {
 
+    @IBOutlet weak var logoContainer: UIView!
+    @IBOutlet weak var logo: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        DoAnimation()
     }
-    */
+    
+   
+    
+    override open var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    func DoAnimation(){
+        UIView.transition(with: logoContainer, duration: 5.0, options: .transitionCrossDissolve, animations: {
+            self.logoContainer.alpha = 1
+        }) { (true) in
+            
+            self.dismiss(animated: true, completion: nil)
+            
+            self.performSegue(withIdentifier: "gohome", sender: self)
+            
+            
+        }
+        
+        
+        
+    }
+  
 
 }

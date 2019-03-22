@@ -14,6 +14,7 @@ class ResultItem {
     var title :String?
     var videoId :String?
     var thumbnailsDefaultURL :String?
+    var description : String?
     
    
     
